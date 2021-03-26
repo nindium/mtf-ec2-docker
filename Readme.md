@@ -25,6 +25,9 @@ Solution:
         (for example use export AWS_PROFILE=<our_user>)
         Then run:
         terraform apply --auto-approve
+        It will create VPC, 2 Public subnets, Public Routing Table, 2 Security groups, Internet GW,
+        Autoscaling group, Application Load Balancer.
+
     3. To check result get load balancer dns name from 'web_url' terraform output and put it in a browser.
 
 
