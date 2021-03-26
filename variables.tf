@@ -38,7 +38,7 @@ variable "aws_instance_type" {
 variable "asg_desired_capacity" {
   description = "Define how many WEB instances should we have"
   type        = number
-  default     = 1
+  default     = 3
 }
 
 variable "ec2_key_name" {

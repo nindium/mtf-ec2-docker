@@ -34,13 +34,14 @@ resource "aws_launch_template" "asg_ltemplate" {
 }
 
 resource "aws_autoscaling_group" "web_asg" {
-  vpc_zone_identifier = [aws_subnet.public_subnet.id]
+  vpc_zone_identifier = [aws_subnet.public_subnet[0].id, aws_subnet.public_subnet[1].id]
   launch_template {
     id = aws_launch_template.asg_ltemplate.id
     version = aws_launch_template.asg_ltemplate.latest_version
   }
-  health_check_grace_period = 60
+  health_check_type         = "ELB"
   desired_capacity   = var.asg_desired_capacity
   max_size           = var.asg_desired_capacity
   min_size           = var.asg_desired_capacity
+  target_group_arns         = [aws_lb_target_group.web-target.arn]
 }
