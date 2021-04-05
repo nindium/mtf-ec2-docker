@@ -30,7 +30,6 @@ resource "aws_launch_template" "asg_ltemplate" {
     key_name = var.ec2_key_name
     vpc_security_group_ids = [aws_security_group.web_sg.id]
     user_data = base64encode(data.template_file.bootstrap_data.rendered)
-    #user_data = "${base64encode(data.template_file.bootstrap_data.rendered)}"
 }
 
 resource "aws_autoscaling_group" "web_asg" {

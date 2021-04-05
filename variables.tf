@@ -22,13 +22,6 @@ variable "default_cidr" {
   default     = "0.0.0.0/0"
 }
 
-variable "aws_az" {
-    description = "Availability zone definition"
-    type = string 
-    default = "us-east-1a"
-
-}
-
 variable "aws_instance_type" {
   description = "Define EC2 instance type for all instances in the project"
   type        = string
